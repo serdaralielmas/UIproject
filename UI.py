@@ -1,39 +1,33 @@
 from tkinter import ttk
-from tkinter import messagebox
+
 import tkinter as tk
+from Functions import Game
 
-class Game:
-    def __init__(self, genre, dimension):
-        self.givenGenre = genre
-        self.givenDimension = dimension
-
-    def show_developer(self):
-        if self.givenDimension == "2D" and self.givenGenre == "Platformer":
-            messagebox.showinfo("info", "505")
-        elif self.givenDimension == "3D" and self.givenGenre == "Survival":
-            messagebox.showinfo("info", "Santa")
-        else:
-            messagebox.showwarning("info", "Unknown")
-
-class UI():
+class UI:
     def __init__(self):
         self.root = tk.Tk()  # Initialize the root window
         self.root.geometry("300x300")
         self.checkDeveloper = tk.Button(self.root, text="Check Developer")
-        self.checkDeveloper.place(x=100,y=200)
+
 
         # Create combo boxes as instance variables so they can be accessed by other methods
+
         self.comboGenre = ttk.Combobox(
             state="readonly",
             values=["Survival", "Platformer", "Other"]
         )
+        self.comboGenre.set("Select an option")
+
         self.comboDim = ttk.Combobox(
+
             state="readonly",
             values=["2D", "3D"]
         )
+        self.comboDim.set("Select an option")
+        self.comboGenre.pack(pady=10)
+        self.comboDim.pack(pady=10)
+        self.checkDeveloper.pack(pady=20)
 
-        self.comboDim.place(x=100, y=100)
-        self.comboGenre.place(x=100, y=50)
 
         # Set up button
         self.button_funcs()
