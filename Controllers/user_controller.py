@@ -1,3 +1,4 @@
+
 from UIproject.Views.user_view import UserView
 from  UIproject.Static.dictionary import GameLibrary
 from tkinter import messagebox
@@ -13,22 +14,29 @@ class UserController:
         dimension = self.view.comboDim.get()
         art_style = self.view.comboArt.get()
 
-        filtered_games = []
         get_library = GameLibrary()
         proxy_library = get_library.gameLibrary
 
-        for game in proxy_library:
-            for key,value in game:
-                print(value)
+        categories = []
+        matching_games = []
+        categories = [genre,dimension,art_style]
+        i = 0
+        y = 0
+        if genre != "None": y += 1
+        if dimension != "None": y += 1
+        if art_style != "None": y += 1
 
         for game in proxy_library:
-            if (genre in game["genre"] or genre == "None" or genre == "") and \
-                    (dimension in game["dimension"] or dimension == "None" or dimension == "") and \
-                    (art_style in game["art-style"] or art_style == "None" or art_style == ""):
-                filtered_games.append(game["name"])
+            i = 0
+            for key, value in game.items():
+                for x in value:
+                    if x in categories:
+                        i += 1
+                    if i == y:
+                        if game["name"][0] not in matching_games:
+                            matching_games.append(game["name"][0])
 
-        matching_games = filtered_games
-        if len(matching_games) > 1:
+        if len(matching_games) > 0:
             messagebox.showinfo("Matching Games",str(matching_games))
         else:
             messagebox.showinfo("Matching Games","No games found")

@@ -1,7 +1,3 @@
-from tabnanny import check
-
-from unicodedata import category
-
 
 class GameLibrary:
     def __init__(self):
@@ -47,8 +43,3 @@ class GameLibrary:
             self.dontStarveTogether,
             self.celeste
         ]
-
-        """for game in proxy_library:
-            for key,value in game.items():   #It's here for some testing issues.
-                categories += value"""
-

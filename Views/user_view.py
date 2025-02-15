@@ -19,7 +19,7 @@ class UserView:
         self.comboDim = ttk.Combobox( root,
 
             state= "readonly",
-            values=["2D", "3D"]
+            values=["2D", "3D","None"]
         )
         self.comboArt = ttk.Combobox(
             state= "readonly",
