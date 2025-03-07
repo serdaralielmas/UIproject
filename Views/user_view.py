@@ -34,3 +34,4 @@ class UserView:
         self.comboDim.pack(pady=0)
         self.comboArt.pack(pady=20)
         self.filterBtn.pack(pady=20)
+

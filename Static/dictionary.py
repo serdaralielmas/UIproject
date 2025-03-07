@@ -43,3 +43,4 @@ class GameLibrary:
             self.dontStarveTogether,
             self.celeste
         ]
+

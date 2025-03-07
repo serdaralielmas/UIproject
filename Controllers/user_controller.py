@@ -1,7 +1,7 @@
-
 from UIproject.Views.user_view import UserView
 from  UIproject.Static.dictionary import GameLibrary
 from tkinter import messagebox
+
 
 class UserController:
     def __init__(self,root):
@@ -40,3 +40,4 @@ class UserController:
             messagebox.showinfo("Matching Games",str(matching_games))
         else:
             messagebox.showinfo("Matching Games","No games found")
+
